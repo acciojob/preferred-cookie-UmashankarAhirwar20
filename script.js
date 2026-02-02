@@ -19,18 +19,23 @@ function getCookie(name) {
 	}
 	return null;
 }
-
 const savedFontSize = getCookie("fontsize");
 const savedFontColor = getCookie("fontcolor");
 
-if(savedFontSize) {
-	document.documentElement.style.setProperty("--fontsize", savedFontSize + "px");
-	fontsize.value = savedFontSize;
+if (savedFontSize !== null) {
+  document.documentElement.style.setProperty(
+    "--fontsize",
+    `${savedFontSize}px`
+  );
+  fontsize.value = savedFontSize;
 }
 
-if(savedFontColor) {
-	 document.documentElement.style.setProperty("--fontcolor", savedFontColor);
-	fontcolor.value = savedFontColor;
+if (savedFontColor !== null) {
+  document.documentElement.style.setProperty(
+    "--fontcolor",
+    savedFontColor
+  );
+  fontcolor.value = savedFontColor;
 }
 
 form.addEventListener("submit", (e) => {
